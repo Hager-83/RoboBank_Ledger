@@ -1,0 +1,23 @@
+#include <cstring>
+#include "cal.hpp"
+#include "ledger.hpp"
+
+#define MAX_SIZE 5;
+
+using namespace std;
+
+
+int find_account_index (char *ac_account_id[], int ac_account, char *account_id)
+{
+    int ret_val = -1;
+    for (int index =0; index < MAX_SIZE; index++)
+    {
+        if(!strcmp(ac_account_id[index], account_id))
+        {
+            ret_val = index;
+            break;
+        }
+    }
+    return ret_val;
+}
+

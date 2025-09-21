@@ -1,0 +1,21 @@
+#include <cstring>
+#include "cal.hpp"
+#include "ledger.hpp"
+
+using namespace std;
+
+
+int ind_account_index (char *ac_account_id[], int ac_account, char account_id)
+{
+    int ret_val = -1;
+    for (int i =0; i<ac_account, i++)
+    {
+        if(strcmp(*ac_account_id[i],account_id)==0)
+        {
+            ret_val = 0
+            return 0;
+
+        }
+    }
+}
+
