@@ -134,7 +134,7 @@ void apply_all(string *tx_account_id, int *tx_type,int *tx_amount_cents, int tx_
     cout <<endl;
     for(auto i{0} ; i< tx_count; i++)
     {
-        apply_one(ac_account_id, ac_balance, ac_capacity, ac_count, tx_account_id[i], tx_type[i], tx_amount_cents[i] );
+        apply_one(ac_account_id, ac_balance, ac_capacity, ac_count, tx_account_id[i], tx_type[i], tx_amount_cents[i] )
     }
 }
 
@@ -162,15 +162,15 @@ int balance_of(string *ac_account_id, int *ac_balance, int ac_count,string accou
 }
 
 /*************** 6.Bank Summary **************/
-void bank_summary(int ac_count, int *ac_balance)
+void bank_summary(int ac_count, int ac_balance[])
  {
     for(auto i =0; i<ac_count ; i++)
     {
         out_net_exposure += ac_balance[i];
     }
-    cout << "1) Out total deposits    = " <<out_total_deposits    << " Cents" <<endl;  
-    cout << "2) Out total withdrawals = " <<out_total_withdrawals << " Cents" <<endl;  
-    cout << "3) Out total fees        = " <<out_total_fees        << " Cents" <<endl;  
-    cout << "4) Out total interest    = " <<out_total_interest    << " Cents" <<endl;  
-    cout << "5) Out net exposure      = " <<out_net_exposure      << " Cents" <<endl;
+    cout << "1) Out total deposits    = " <<out_total_deposits    << "Cents" <<endl;  
+    cout << "2) Out total withdrawals = " <<out_total_withdrawals << "Cents" <<endl;  
+    cout << "3) Out total fees        = " <<out_total_fees        << "Cents" <<endl;  
+    cout << "4) Out total interest    = " <<out_total_interest    << "Cents" <<endl;  
+    cout << "5) Out net exposure      = " <<out_net_exposure      << "Cents" <<endl;
  }

@@ -133,7 +133,7 @@ int main()
                         cin >> tx_amount_cents[i];
                     }  
                 }
-                    apply_all(tx_account_id.get(), tx_type.get(), tx_amount_cents.get(), tx_count,ac_account_id, ac_balance, ac_capacity, no_of_accounts);
+                    apply_all(tx_account_id.get(), tx_type.get(), tx_amount_cents, tx_count,ac_account_id, ac_balance, ac_capacity, no_of_accounts);
 
                 for (auto i =0; i<tx_count; i++)
                 {

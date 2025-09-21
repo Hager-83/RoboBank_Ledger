@@ -19,7 +19,7 @@ int ac_balance[ac_capacity] = {5000, 1500, 3000, -700, 0};
 
 int amount, tx_type;
 
-int tx_count = 0;
+int tx_count = 3;
 
 int main()
 {
@@ -70,9 +70,9 @@ int main()
                 cout << "\n--> Get Or Create Account."<<endl;
                 cout<<"Enter Account ID: ";
                 cin.ignore();
-                getline(cin, *account_id);
+                getline(cin, account_id);
 
-                return_value = get_or_create_account(ac_account_id, ac_balance, ac_capacity, no_of_accounts, *account_id);
+                return_value = get_or_create_account(ac_account_id, ac_balance, ac_capacity, no_of_accounts, account_id);
                 if(-1 != return_value)
                 {
                     cout << "Done successfully."<<endl;
@@ -86,7 +86,7 @@ int main()
                 cout << "\n--> Apply One Transaction."<<endl;
                 cout<<"Enter Account ID: ";
                 cin.ignore();
-                getline(cin, *account_id);
+                getline(cin, account_id);
                 cout << "\nChoose transaction: "<< endl;
                 cout << "press [0] for Apply deposit."<<endl;
                 cout << "press [1] for apply withdrawal."<<endl;
@@ -103,7 +103,7 @@ int main()
                     cin.ignore();
                     cin >> amount;
                 }
-                apply_one(ac_account_id,ac_balance, ac_capacity, no_of_accounts, *account_id, tx_type, amount);
+                apply_one(ac_account_id,ac_balance, ac_capacity, no_of_accounts, account_id, tx_type, amount);
             break;
 
             case 4: /** Apply All Transactions  **/
@@ -111,11 +111,9 @@ int main()
                 cout << "\n--> Apply All Transactions..."<<endl;
                 cout << "Enter nember of Transactions: ";
                 cin >> tx_count;
-                unique_ptr<string[]> tx_account_id = make_unique<string[]>(tx_count);
-                //int    tx_type[tx_count];    
-                unique_ptr<int[]>tx_type = make_unique<int[]>(tx_count);    
-                //int    tx_amount_cents[tx_count];
-                 unique_ptr<int[]>tx_amount_cents = make_unique<int[]>(tx_count);    
+                string tx_account_id[tx_count];
+                int    tx_type[tx_count];          
+                int    tx_amount_cents[tx_count];
 
                 for (auto i =0; i<tx_count; i++)
                 {
@@ -127,13 +125,10 @@ int main()
                     cout << "  --> Enter transaction type (0=Deposit, 1=Withdrawal, 2=Fee, 3=Interest, 4=TransferIn, 5=TransferOut): ";
                     cin >> tx_type[i];
 
-                    if(3 != tx_type[i])
-                    {
-                        cout << "  --> Enter transaction amount in cents: ";
-                        cin >> tx_amount_cents[i];
-                    }  
+                    cout << "  --> Enter transaction amount in cents: ";
+                    cin >> tx_amount_cents[i];
                 }
-                    apply_all(tx_account_id.get(), tx_type.get(), tx_amount_cents.get(), tx_count,ac_account_id, ac_balance, ac_capacity, no_of_accounts);
+                    apply_all(tx_account_id, tx_type, tx_amount_cents, tx_count,ac_account_id, ac_balance, ac_capacity, no_of_accounts);
 
                 for (auto i =0; i<tx_count; i++)
                 {
@@ -147,11 +142,11 @@ int main()
                 cout << "\n--> Balance of Account."<<endl;
                 cout<<"Enter Account ID: ";
                 cin.ignore();
-                getline(cin, *account_id);
-                return_value = balance_of(ac_account_id, ac_balance, no_of_accounts, *account_id);
+                getline(cin, account_id);
+                return_value = balance_of(ac_account_id, ac_balance, no_of_accounts, account_id);
                 if(return_value)
                 {
-                    cout << "Account ["<<*account_id<<"] Balance = "<< return_value << endl;
+                    cout << "Account ["<<account_id<<"] Balance = "<< return_value << endl;
                 }
                 else{/* Nothing */}
             break;

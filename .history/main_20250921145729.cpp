@@ -19,7 +19,7 @@ int ac_balance[ac_capacity] = {5000, 1500, 3000, -700, 0};
 
 int amount, tx_type;
 
-int tx_count = 0;
+int tx_count = 3;
 
 int main()
 {
@@ -111,11 +111,9 @@ int main()
                 cout << "\n--> Apply All Transactions..."<<endl;
                 cout << "Enter nember of Transactions: ";
                 cin >> tx_count;
-                unique_ptr<string[]> tx_account_id = make_unique<string[]>(tx_count);
-                //int    tx_type[tx_count];    
-                unique_ptr<int[]>tx_type = make_unique<int[]>(tx_count);    
-                //int    tx_amount_cents[tx_count];
-                 unique_ptr<int[]>tx_amount_cents = make_unique<int[]>(tx_count);    
+                string tx_account_id[tx_count];
+                int    tx_type[tx_count];          
+                int    tx_amount_cents[tx_count];
 
                 for (auto i =0; i<tx_count; i++)
                 {
@@ -127,13 +125,10 @@ int main()
                     cout << "  --> Enter transaction type (0=Deposit, 1=Withdrawal, 2=Fee, 3=Interest, 4=TransferIn, 5=TransferOut): ";
                     cin >> tx_type[i];
 
-                    if(3 != tx_type[i])
-                    {
-                        cout << "  --> Enter transaction amount in cents: ";
-                        cin >> tx_amount_cents[i];
-                    }  
+                    cout << "  --> Enter transaction amount in cents: ";
+                    cin >> tx_amount_cents[i];
                 }
-                    apply_all(tx_account_id.get(), tx_type.get(), tx_amount_cents.get(), tx_count,ac_account_id, ac_balance, ac_capacity, no_of_accounts);
+                    apply_all(tx_account_id, tx_type, tx_amount_cents, tx_count,ac_account_id, ac_balance, ac_capacity, no_of_accounts);
 
                 for (auto i =0; i<tx_count; i++)
                 {

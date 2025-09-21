@@ -5,8 +5,11 @@
 using std::string;
 
 
+
+//#define MAX_SIZE 5;
+
 /****************** 1. Find Account Index ******************/
-int find_account_index(string *ac_account_id, int ac_count, string account_id);
+int find_account_index(string *ac_account_id, int ac_acount, string account_id);
 
 /*************** 2. Get Or Create Account *****************/
 int get_or_create_account(string *ac_account_id,int *ac_balance,int ac_capacity,int& ac_count,string account_id);
@@ -21,6 +24,6 @@ void apply_all(string *tx_account_id, int *tx_type,int *tx_amount_cents, int tx_
 int balance_of(string *ac_account_id, int *ac_balance, int ac_count,string account_id);
 
 /********************* 6.Bank Summary ******************/
-void bank_summary(int ac_count, int *ac_balance);
+void bank_summary(int ac_count, int 8ac_balance[]);
 
 #endif /*_LEDGER_HPP_*/

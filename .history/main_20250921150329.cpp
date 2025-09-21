@@ -113,9 +113,8 @@ int main()
                 cin >> tx_count;
                 unique_ptr<string[]> tx_account_id = make_unique<string[]>(tx_count);
                 //int    tx_type[tx_count];    
-                unique_ptr<int[]>tx_type = make_unique<int[]>(tx_count);    
-                //int    tx_amount_cents[tx_count];
-                 unique_ptr<int[]>tx_amount_cents = make_unique<int[]>(tx_count);    
+                uniq      
+                int    tx_amount_cents[tx_count];
 
                 for (auto i =0; i<tx_count; i++)
                 {
@@ -133,7 +132,7 @@ int main()
                         cin >> tx_amount_cents[i];
                     }  
                 }
-                    apply_all(tx_account_id.get(), tx_type.get(), tx_amount_cents.get(), tx_count,ac_account_id, ac_balance, ac_capacity, no_of_accounts);
+                    apply_all(tx_account_id.get(), tx_type, tx_amount_cents, tx_count,ac_account_id, ac_balance, ac_capacity, no_of_accounts);
 
                 for (auto i =0; i<tx_count; i++)
                 {

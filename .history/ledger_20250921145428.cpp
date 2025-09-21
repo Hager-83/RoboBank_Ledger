@@ -168,9 +168,9 @@ void bank_summary(int ac_count, int *ac_balance)
     {
         out_net_exposure += ac_balance[i];
     }
-    cout << "1) Out total deposits    = " <<out_total_deposits    << " Cents" <<endl;  
-    cout << "2) Out total withdrawals = " <<out_total_withdrawals << " Cents" <<endl;  
-    cout << "3) Out total fees        = " <<out_total_fees        << " Cents" <<endl;  
-    cout << "4) Out total interest    = " <<out_total_interest    << " Cents" <<endl;  
-    cout << "5) Out net exposure      = " <<out_net_exposure      << " Cents" <<endl;
+    cout << "1) Out total deposits    = " <<out_total_deposits    << "Cents" <<endl;  
+    cout << "2) Out total withdrawals = " <<out_total_withdrawals << "Cents" <<endl;  
+    cout << "3) Out total fees        = " <<out_total_fees        << "Cents" <<endl;  
+    cout << "4) Out total interest    = " <<out_total_interest    << "Cents" <<endl;  
+    cout << "5) Out net exposure      = " <<out_net_exposure      << "Cents" <<endl;
  }

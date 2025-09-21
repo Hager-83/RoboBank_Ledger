@@ -9,7 +9,7 @@ int out_total_deposits = 0, out_total_withdrawals=0, out_total_fees = 0, out_tot
 using namespace std;
 
 /****************** 1. Find Account Index ******************/
-int find_account_index(string *ac_account_id, int ac_count, string account_id)
+int find_account_index(string *ac_account_id, int ac_acount, string account_id)
 {
     int ret_val = -1;
     for (int index =0; index <ac_count; index++)
@@ -56,7 +56,7 @@ int get_or_create_account(string *ac_account_id,int *ac_balance,int ac_capacity,
 }
 
 /*************** 3. Apply One Transaction **************/
-void apply_one(string *ac_account_id, int *ac_balance, int ac_capacity, int& ac_count, string account_id,int tx_type,unsigned int amount_cents)
+void apply_one(string ac_account_id[], int ac_balance[], int ac_capacity, int& ac_count, string account_id,int tx_type,unsigned int amount_cents)
 {
     int index   = -1;
     int balance = 0;
@@ -129,7 +129,7 @@ void apply_one(string *ac_account_id, int *ac_balance, int ac_capacity, int& ac_
     }
 }
 /*************** 4. Apply All Transactions **************/
-void apply_all(string *tx_account_id, int *tx_type,int *tx_amount_cents, int tx_count, string *ac_account_id,int *ac_balance,int ac_capacity,int& ac_count)
+void apply_all(string tx_account_id[], int tx_type[],int tx_amount_cents[], int tx_count, string ac_account_id[],int ac_balance[],int ac_capacity,int& ac_count)
 {
     cout <<endl;
     for(auto i{0} ; i< tx_count; i++)
@@ -139,7 +139,7 @@ void apply_all(string *tx_account_id, int *tx_type,int *tx_amount_cents, int tx_
 }
 
 /*************** 5.Balance of  **************/
-int balance_of(string *ac_account_id, int *ac_balance, int ac_count,string account_id)
+int balance_of(string ac_account_id[],int ac_balance[],int ac_count,string account_id)
 {
     int ret_val = -1;
     ret_val = find_account_index(ac_account_id, ac_count,account_id);
@@ -162,15 +162,15 @@ int balance_of(string *ac_account_id, int *ac_balance, int ac_count,string accou
 }
 
 /*************** 6.Bank Summary **************/
-void bank_summary(int ac_count, int *ac_balance)
+void bank_summary(int ac_count, int ac_balance[])
  {
     for(auto i =0; i<ac_count ; i++)
     {
         out_net_exposure += ac_balance[i];
     }
-    cout << "1) Out total deposits    = " <<out_total_deposits    << " Cents" <<endl;  
-    cout << "2) Out total withdrawals = " <<out_total_withdrawals << " Cents" <<endl;  
-    cout << "3) Out total fees        = " <<out_total_fees        << " Cents" <<endl;  
-    cout << "4) Out total interest    = " <<out_total_interest    << " Cents" <<endl;  
-    cout << "5) Out net exposure      = " <<out_net_exposure      << " Cents" <<endl;
+    cout << "1) Out total deposits    = " <<out_total_deposits    << "Cents" <<endl;  
+    cout << "2) Out total withdrawals = " <<out_total_withdrawals << "Cents" <<endl;  
+    cout << "3) Out total fees        = " <<out_total_fees        << "Cents" <<endl;  
+    cout << "4) Out total interest    = " <<out_total_interest    << "Cents" <<endl;  
+    cout << "5) Out net exposure      = " <<out_net_exposure      << "Cents" <<endl;
  }
